@@ -1,0 +1,117 @@
+@import url('https://rsms.me/inter/inter.css');
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
+:root {
+  --background-main: #edf4f7;
+  --background-side: #f4f8fa;
+  --primary-blue: #32444d;
+  --secondary-blue: #b3c3cc;
+  --primary-orange: #ff6719;
+  --secondary-orange: #ffaa80;
+}
+
+body {
+  font-family: Inter;
+  font-size: 16px;
+  line-height: 1.5;
+
+  background-color: var(--background-main); /* variable calls root */
+  color: var(--primary-blue);
+  
+  display: grid;
+  grid-template-columns: 320px 1fr; /* width and then 1 fraction of page left */
+  min-height: 100vh;  /* 100% of viewable height */
+}
+
+nav {
+  background-color:  var(--background-side);
+  padding: 48px; /* padding goes all around */
+}
+
+main {
+  padding: 48px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--secondary-blue);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform:  uppercase;
+  margin: 24px 0 0 0;
+}
+
+p {
+  font-size: 24px;
+}
+
+rect {
+  fill: var(--primary-orange);
+  transition: fill 0.5s; /* unlike JavaScript, CSS defaults seconds, not milliseconds */
+}
+
+circle.actual {
+  fill:var(--primary-blue);
+  transition: fill 0.25s;
+}
+
+text {
+  fill: var(--secondary-orange);
+  text-anchor: middle;
+  font-size: 14px;
+}
+
+rect:hover {
+  fill: var(--primary-blue);
+}
+
+text.steps { /* this is a filter for the JS class*/
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+/* when I hover ang group, inside the group, make the text with the class seen */
+g:hover text.steps  {
+  opacity:  1;
+}
+
+g:hover circle.actual {
+  fill: var(--primary-orange);
+}
+
+rect.transparent {
+  opacity: 0;
+}
+
+circle.ring {
+  fill: none;
+  stroke: var(--secondary-blue);
+  stroke-width: 1px;
+  opacity: 0.25px; 
+}
+
+text.day {
+  opacity: 1;
+  transition:  0.25s;
+}
+
+/* g:hover text.day {
+  opacity: 0;
+} */
+
+/* pick an svg with a label of month, then any text tag inside */
+svg.month text {
+  fill: var(--primary-blue);
+}
+
+svg.month text.steps {
+  fill: var(--primary-blue);
+}
+
+
